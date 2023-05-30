@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Board from "./components/Board/Board";
+import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 
 // Make a board to hold cards
 // Make a card which has a title and a timer
@@ -8,7 +9,8 @@ import Board from "./components/Board/Board";
 // Save stuff via cookies
 
 const App = () => {
-  const dailyActivities = [
+  const [showModal, setShowModal] = useState(false);
+  const dailyActivities = [ 
     // Maybe make into state and hold timer
     {
       title: "Code",
@@ -16,9 +18,22 @@ const App = () => {
     },
   ];
 
+  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
+  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
+  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
+  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
+  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
+  // 
+  // To add new activities
+
   return (
     <>
-      <Board dailyActivities={dailyActivities} />
+      {showModal && <ActivityCreation setShowModal={setShowModal} />}
+      <Board
+        dailyActivities={dailyActivities}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </>
   );
 };
