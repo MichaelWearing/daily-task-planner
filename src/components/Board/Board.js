@@ -8,8 +8,8 @@ const Board = ({ dailyActivities }) => {
   return (
     <Wrapper>
       <InnerWrapper>
-        {dailyActivities.map((activity) => (
-          <Activity activity={activity} />
+        {dailyActivities.map((activity, index) => (
+          <Activity key={`${activity.title}${index}`} activity={activity} />
         ))}
       </InnerWrapper>
     </Wrapper>
