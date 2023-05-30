@@ -18,13 +18,7 @@ const App = () => {
     },
   ];
 
-  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
-  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
-  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
-  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
-  // UseRef to get inputs// UseRef to get inputs// UseRef to get inputs
-  // 
-  // To add new activities
+ 
 
   return (
     <>
