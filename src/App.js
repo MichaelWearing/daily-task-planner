@@ -12,14 +12,7 @@ const App = () => {
   const [showModal, setShowModal] = useState(false);
 
   // Maybe make into state and hold timer
-  const dailyActivities = [
-    {
-      title: "Code",
-      duration: 5,
-    },
-  ];
-
-  const [dailyActivitiesTest, setDailyActivitiesTest] = useState([
+  const [dailyActivities, setDailyActivities] = useState([
     {
       title: "Code Test",
       duration: 7,
@@ -32,13 +25,11 @@ const App = () => {
         <ActivityCreation
           setShowModal={setShowModal}
           dailyActivities={dailyActivities}
-          dailyActivitiesTest={dailyActivitiesTest}
-          setDailyActivitiesTest={setDailyActivitiesTest}
+          setDailyActivities={setDailyActivities}
         />
       )}
       <Board
         dailyActivities={dailyActivities}
-        dailyActivitiesTest={dailyActivitiesTest}
         showModal={showModal}
         setShowModal={setShowModal}
       />
