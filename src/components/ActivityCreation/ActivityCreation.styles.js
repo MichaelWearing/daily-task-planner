@@ -30,9 +30,8 @@ export const InnerWrapper = styled.div`
 `;
 
 export const CloseModalWrapper = styled.div`
-  position: absolute;
-  top: 27.5vh;
-  right: 27.5vh;
+  display: flex;
+  align-self: end;
   background: transparent;
   font-size: 35px;
   cursor: pointer;

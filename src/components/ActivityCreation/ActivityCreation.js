@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import {
   Wrapper,
@@ -13,7 +13,26 @@ import {
   CreateButton,
 } from "./ActivityCreation.styles";
 
-const ActivityCreation = ({ setShowModal }) => {
+const ActivityCreation = ({
+  setShowModal,
+  dailyActivitiesTest,
+  setDailyActivitiesTest,
+}) => {
+  const titleRef = useRef();
+  const durationRef = useRef();
+
+  const createActivity = () => {
+    setDailyActivitiesTest([
+      ...dailyActivitiesTest,
+      {
+        title: titleRef.current.value,
+        duration: durationRef.current.value,
+      },
+    ]);
+
+    setShowModal(false);
+  };
+
   return (
     <>
       <Wrapper>
@@ -25,14 +44,14 @@ const ActivityCreation = ({ setShowModal }) => {
           <InputWrapper>
             <InputInnerWrapper>
               <InputHeader>Title</InputHeader>
-              <Input placeholder="Title" />
+              <Input ref={titleRef} placeholder="Title" />
             </InputInnerWrapper>
             <InputInnerWrapper>
               <InputHeader>Duration</InputHeader>
-              <Input placeholder="Duration" />
+              <Input ref={durationRef} placeholder="Duration" />
             </InputInnerWrapper>
           </InputWrapper>
-          <CreateButton>Create</CreateButton>
+          <CreateButton onClick={() => createActivity()}>Create</CreateButton>
         </InnerWrapper>
       </Wrapper>
     </>

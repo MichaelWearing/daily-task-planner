@@ -10,21 +10,35 @@ import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
-  const dailyActivities = [ 
-    // Maybe make into state and hold timer
+
+  // Maybe make into state and hold timer
+  const dailyActivities = [
     {
       title: "Code",
       duration: 5,
     },
   ];
 
- 
+  const [dailyActivitiesTest, setDailyActivitiesTest] = useState([
+    {
+      title: "Code Test",
+      duration: 7,
+    },
+  ]);
 
   return (
     <>
-      {showModal && <ActivityCreation setShowModal={setShowModal} />}
+      {showModal && (
+        <ActivityCreation
+          setShowModal={setShowModal}
+          dailyActivities={dailyActivities}
+          dailyActivitiesTest={dailyActivitiesTest}
+          setDailyActivitiesTest={setDailyActivitiesTest}
+        />
+      )}
       <Board
         dailyActivities={dailyActivities}
+        dailyActivitiesTest={dailyActivitiesTest}
         showModal={showModal}
         setShowModal={setShowModal}
       />
