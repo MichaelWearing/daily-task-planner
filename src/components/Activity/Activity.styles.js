@@ -4,6 +4,8 @@ export const Wrapper = styled.div`
   background: violet;
   height: 10vh;
 
+  opacity: ${(props) => (props.timerComplete ? 0.5 : 1)};
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;

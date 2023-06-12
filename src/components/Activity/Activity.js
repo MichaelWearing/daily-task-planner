@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Timer from "../Timer/Timer";
 
@@ -10,17 +10,26 @@ import {
   TimerWrapper,
 } from "./Activity.styles";
 
-const Activity = ({ activity }) => {
+const Activity = ({ id, activity, dailyActivities, setDailyActivities }) => {
   const { title, duration } = activity;
+  const [timerComplete, setTimerComplete] = useState(false);
 
   return (
-    <Wrapper>
+    <Wrapper timerComplete={timerComplete}>
       <ActivityWrapper>
         <Title>{title}</Title>
         <Description>desc...</Description>
       </ActivityWrapper>
       <TimerWrapper>
-        <Timer duration={duration} />
+        <Timer
+          id={id}
+          title={title}
+          duration={duration}
+          dailyActivities={dailyActivities}
+          setDailyActivities={setDailyActivities}
+          timerComplete={timerComplete}
+          setTimerComplete={setTimerComplete}
+        />
       </TimerWrapper>
     </Wrapper>
   );

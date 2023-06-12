@@ -52,6 +52,12 @@ export const InputWrapper = styled.div`
   gap: 50px;
 `;
 
+export const TimerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`;
+
 export const InputInnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,6 +69,13 @@ export const InputHeader = styled.h3``;
 export const Input = styled.input`
   height: 40px;
   width: 350px;
+
+  padding: 0 10px;
+`;
+
+export const TimeInput = styled.input`
+  height: 40px;
+  width: 100px;
 
   padding: 0 10px;
 `;

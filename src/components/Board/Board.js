@@ -4,12 +4,23 @@ import Activity from "../Activity/Activity";
 
 import { Wrapper, InnerWrapper, AddActivityButton } from "./Board.styles";
 
-const Board = ({ dailyActivities, showModal, setShowModal }) => {
+const Board = ({
+  dailyActivities,
+  setDailyActivities,
+  showModal,
+  setShowModal,
+}) => {
   return (
     <Wrapper>
       <InnerWrapper>
         {dailyActivities.map((activity, index) => (
-          <Activity key={`${activity.title}${index}`} activity={activity} />
+          <Activity
+            id={`${activity.title}${index}`}
+            key={`${activity.title}${index}`}
+            activity={activity}
+            dailyActivities={dailyActivities}
+            setDailyActivities={setDailyActivities}
+          />
         ))}
         <AddActivityButton onClick={() => setShowModal(!showModal)}>
           Add Activity

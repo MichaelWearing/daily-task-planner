@@ -2,36 +2,85 @@ import React, { useEffect, useState } from "react";
 
 import { Wrapper, StartTimer } from "./Timer.styles";
 
-const Timer = ({ duration }) => {
-  const [remainingTime, setRemainingTime] = useState(duration);
-  const [timerComplete, setTimerComplete] = useState(false);
-  const [startTimer, setStartTimer] = useState(false);
+const Timer = ({
+  id,
+  title,
+  duration,
+  dailyActivities,
+  setDailyActivities,
+  timerComplete,
+  setTimerComplete,
+}) => {
+  const [remainingSeconds, setRemainingSeconds] = useState(duration.seconds);
+  const [remainingMinutes, setRemainingMinutes] = useState(duration.minutes);
+  const [remainingHours, setRemainingHours] = useState(duration.hours);
 
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
+  const [startTimer, setStartTimer] = useState(false);
 
   useEffect(() => {
     const timerTick = setInterval(() => {
       if (startTimer) {
-        setRemainingTime((prevTime) => {
-          if (prevTime === 0) {
-            setTimerComplete(true);
+        if (
+          remainingHours === 0 &&
+          remainingMinutes === 0 &&
+          remainingSeconds === 0
+        ) {
+          setTimerComplete(true);
+        } else {
+          if (remainingSeconds > 0) {
+            setRemainingSeconds(remainingSeconds - 1);
+          } else if (remainingMinutes > 0) {
+            setRemainingMinutes(remainingMinutes - 1);
+            setRemainingSeconds(59);
+          } else if (remainingHours > 0) {
+            setRemainingHours(remainingHours - 1);
+            setRemainingMinutes(59);
+            setRemainingSeconds(59);
+          }
+        }
+
+        const updatedActivity = {
+          title: title,
+          duration: {
+            hours: remainingHours,
+            minutes: remainingMinutes,
+            seconds: remainingSeconds,
+          },
+        };
+
+        const updatedActivityArray = dailyActivities.map((currentActivity) => {
+          if (currentActivity.id === id) {
+            return updatedActivity;
           } else {
-            return prevTime - 1;
+            return currentActivity;
           }
         });
+
+        setDailyActivities(updatedActivityArray);
       }
-    }, second);
+    }, 1000);
 
     return () => clearInterval(timerTick);
-  }, [remainingTime, startTimer]);
+  }, [remainingSeconds, startTimer]);
+
+  const formateTime = (time) => {
+    if (time < 10) {
+      return `0${time}`;
+    } else {
+      return time;
+    }
+  };
 
   return (
     <>
       <Wrapper>
-        {timerComplete ? <h1>TIME'S UP</h1> : remainingTime}
+        {timerComplete ? (
+          <h1>TIME'S UP</h1>
+        ) : (
+          `${formateTime(remainingHours)}:${formateTime(
+            remainingMinutes
+          )}:${formateTime(remainingSeconds)}`
+        )}
         <StartTimer onClick={() => setStartTimer(!startTimer)} />
       </Wrapper>
     </>
