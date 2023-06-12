@@ -15,15 +15,15 @@ import {
 
 const ActivityCreation = ({
   setShowModal,
-  dailyActivitiesTest,
-  setDailyActivitiesTest,
+  dailyActivities,
+  setDailyActivities,
 }) => {
   const titleRef = useRef();
   const durationRef = useRef();
 
   const createActivity = () => {
-    setDailyActivitiesTest([
-      ...dailyActivitiesTest,
+    setDailyActivities([
+      ...dailyActivities,
       {
         title: titleRef.current.value,
         duration: durationRef.current.value,
