@@ -6,19 +6,20 @@ export const Wrapper = styled.div`
   width: 100vw;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
 `;
 
 export const InnerWrapper = styled.div`
   background: lightskyblue;
-  height: 90vh;
-  width: 100vw;
+  height: 85vh;
+  width: 90vw;
 
   display: flex;
   flex-direction: column;
 
-  margin: 50px;
+  /* margin: 50px 50px 5vh 50px; */
 
   border-radius: 15px;
 `;
@@ -33,4 +34,20 @@ export const AddActivityButton = styled.button`
   align-items: center;
 
   border-radius: 10px;
+`;
+
+export const ResetWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7.5px;
+`;
+
+export const ResetButton = styled.button`
+  height: 5vh;
+  width: 5vh;
+`;
+
+export const ResetText = styled.h3`
+  color: white;
 `;

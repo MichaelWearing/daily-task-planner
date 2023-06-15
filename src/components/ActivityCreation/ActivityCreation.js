@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useId } from "react";
 
 import {
   Wrapper,
@@ -20,6 +20,8 @@ const ActivityCreation = ({
   dailyActivities,
   setDailyActivities,
 }) => {
+  const id = useId();
+
   const titleRef = useRef();
   const secondsRef = useRef();
   const minutesRef = useRef();
@@ -32,8 +34,14 @@ const ActivityCreation = ({
     setDailyActivities([
       ...dailyActivities,
       {
+        id: id,
         title: titleRef.current.value,
         duration: {
+          hours: hoursRef.current.value,
+          minutes: minutesRef.current.value,
+          seconds: secondsRef.current.value,
+        },
+        remainingTime: {
           hours: hoursRef.current.value,
           minutes: minutesRef.current.value,
           seconds: secondsRef.current.value,
@@ -45,6 +53,7 @@ const ActivityCreation = ({
   };
 
   const checkForValidTime = (ref) => {
+    // When we go > 59 or < 0 error for user
     if (ref.current.value > 59) {
       ref.current.value = 59;
     }
@@ -70,13 +79,14 @@ const ActivityCreation = ({
               <InputHeader>Duration</InputHeader>
               <TimerWrapper>
                 <TimeInput
-                  ref={secondsRef}
+                  ref={hoursRef}
                   type="number"
                   min="0"
                   max="59"
-                  placeholder="Seconds"
-                  onChange={() => checkForValidTime(secondsRef)}
+                  placeholder="Hours"
+                  onChange={() => checkForValidTime(hoursRef)}
                 />
+
                 <TimeInput
                   ref={minutesRef}
                   type="number"
@@ -86,12 +96,12 @@ const ActivityCreation = ({
                   onChange={() => checkForValidTime(minutesRef)}
                 />
                 <TimeInput
-                  ref={hoursRef}
+                  ref={secondsRef}
                   type="number"
                   min="0"
                   max="59"
-                  placeholder="Hours"
-                  onChange={() => checkForValidTime(hoursRef)}
+                  placeholder="Seconds"
+                  onChange={() => checkForValidTime(secondsRef)}
                 />
               </TimerWrapper>
             </InputInnerWrapper>

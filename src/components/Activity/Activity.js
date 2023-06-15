@@ -10,8 +10,14 @@ import {
   TimerWrapper,
 } from "./Activity.styles";
 
-const Activity = ({ id, activity, dailyActivities, setDailyActivities }) => {
-  const { title, duration } = activity;
+const Activity = ({
+  id,
+  activity,
+  dailyActivities,
+  setDailyActivities,
+  refresh,
+}) => {
+  const { title, duration, remainingTime } = activity;
   const [timerComplete, setTimerComplete] = useState(false);
 
   return (
@@ -25,10 +31,12 @@ const Activity = ({ id, activity, dailyActivities, setDailyActivities }) => {
           id={id}
           title={title}
           duration={duration}
+          remainingTime={remainingTime}
           dailyActivities={dailyActivities}
           setDailyActivities={setDailyActivities}
           timerComplete={timerComplete}
           setTimerComplete={setTimerComplete}
+          refresh={refresh}
         />
       </TimerWrapper>
     </Wrapper>
