@@ -6,16 +6,35 @@ const Timer = ({
   id,
   title,
   duration,
+  remainingTime,
   dailyActivities,
   setDailyActivities,
   timerComplete,
   setTimerComplete,
+  refresh,
 }) => {
-  const [remainingSeconds, setRemainingSeconds] = useState(duration.seconds);
-  const [remainingMinutes, setRemainingMinutes] = useState(duration.minutes);
-  const [remainingHours, setRemainingHours] = useState(duration.hours);
+  //
+  //
+  // If we hit the reset button, we utilize duration to get the starting time
+  //
+  //
 
+  const [remainingSeconds, setRemainingSeconds] = useState(
+    remainingTime.seconds
+  );
+  const [remainingMinutes, setRemainingMinutes] = useState(
+    remainingTime.minutes
+  );
+  const [remainingHours, setRemainingHours] = useState(remainingTime.hours);
   const [startTimer, setStartTimer] = useState(false);
+
+  useEffect(() => {
+    setRemainingHours(duration.hours);
+    setRemainingMinutes(duration.minutes);
+    setRemainingSeconds(duration.seconds);
+    setTimerComplete(false);
+    setStartTimer(false);
+  }, [refresh]);
 
   useEffect(() => {
     const timerTick = setInterval(() => {
@@ -26,6 +45,7 @@ const Timer = ({
           remainingSeconds === 0
         ) {
           setTimerComplete(true);
+          setStartTimer(false);
         } else {
           if (remainingSeconds > 0) {
             setRemainingSeconds(remainingSeconds - 1);
@@ -40,8 +60,14 @@ const Timer = ({
         }
 
         const updatedActivity = {
+          id: id,
           title: title,
           duration: {
+            hours: duration.hours,
+            minutes: duration.minutes,
+            seconds: duration.seconds,
+          },
+          remainingTime: {
             hours: remainingHours,
             minutes: remainingMinutes,
             seconds: remainingSeconds,
