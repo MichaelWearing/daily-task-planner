@@ -1,19 +1,24 @@
-import React, { useState, useId } from "react";
+import React, { useState, useId, useEffect } from "react";
 
 import Board from "./components/Board/Board";
 import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 
-// Save stuff via cookies
+
 //
 // Maybe have a congratz screen for completeing a day
 //
 // Reset button for each activity ??
 //
-// Delete Button <<< ---
-//
 // Edit Button
 //
 // User Input, need to add all boxes and correctly
+//
+// Save stuff via cookies
+// 
+// useEffect(() => {
+//   update cookies
+// }, [dailyActivities])
+//
 
 const App = () => {
   const id = useId();
