@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FaBackward } from "react-icons/fa";
 
 export const Wrapper = styled.div`
   background: royalblue;
@@ -34,6 +35,8 @@ export const AddActivityButton = styled.button`
   align-items: center;
 
   border-radius: 10px;
+
+  cursor: pointer;
 `;
 
 export const ResetWrapper = styled.div`
@@ -46,6 +49,17 @@ export const ResetWrapper = styled.div`
 export const ResetButton = styled.button`
   height: 5vh;
   width: 5vh;
+
+  cursor: pointer;
+`;
+
+export const ResetIcon = styled(FaBackward)`
+  color: lightskyblue;
+
+  height: 3vh;
+  width: 3vh;
+
+  cursor: pointer;
 `;
 
 export const ResetText = styled.h3`

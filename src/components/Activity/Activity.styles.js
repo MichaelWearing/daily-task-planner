@@ -35,9 +35,6 @@ export const TimerWrapper = styled.div`
 export const StartTimer = styled.button`
   height: 5vh;
   width: 5vh;
-`;
 
-export const DeleteButton = styled.button`
-  height: 5vh;
-  width: 5vh;
+  cursor: pointer;
 `;

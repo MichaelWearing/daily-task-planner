@@ -85,4 +85,6 @@ export const CreateButton = styled.button`
   width: 150px;
 
   border-radius: 10px;
+
+  cursor: pointer;
 `;

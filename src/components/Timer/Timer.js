@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Wrapper, StartTimer } from "./Timer.styles";
+import { Wrapper, PlayIcon, PauseIcon, DeleteIcon } from "./Timer.styles";
 
 const Timer = ({
   id,
@@ -26,7 +26,7 @@ const Timer = ({
     remainingTime.minutes
   );
   const [remainingHours, setRemainingHours] = useState(remainingTime.hours);
-  
+
   const [startTimer, setStartTimer] = useState(false);
 
   // Resets the Timers to original duration refresh button click
@@ -95,6 +95,19 @@ const Timer = ({
     return () => clearInterval(timerTick);
   }, [remainingSeconds, startTimer]);
 
+  const deleteActivity = () => {
+    console.log(dailyActivities);
+
+    const updatedActivityArray = dailyActivities.filter((currentActivity) => {
+      if (currentActivity.id !== id) {
+        return currentActivity;
+      }
+    });
+
+    console.log(updatedActivityArray);
+    setDailyActivities(updatedActivityArray);
+  };
+
   // Adds a 0 before single digit numbers
   const formateTime = (time) => {
     if (time < 10) {
@@ -114,7 +127,12 @@ const Timer = ({
             remainingMinutes
           )}:${formateTime(remainingSeconds)}`
         )}
-        <StartTimer onClick={() => setStartTimer(!startTimer)} />
+        {startTimer ? (
+          <PauseIcon onClick={() => setStartTimer(!startTimer)} />
+        ) : (
+          <PlayIcon onClick={() => setStartTimer(!startTimer)} />
+        )}
+        <DeleteIcon onClick={() => deleteActivity()} />
       </Wrapper>
     </>
   );

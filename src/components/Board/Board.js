@@ -8,6 +8,7 @@ import {
   AddActivityButton,
   ResetWrapper,
   ResetButton,
+  ResetIcon,
   ResetText,
 } from "./Board.styles";
 import { useState } from "react";
@@ -52,7 +53,9 @@ const Board = ({
         </AddActivityButton>
       </InnerWrapper>
       <ResetWrapper>
-        <ResetButton onClick={() => resetTimers()} />
+        <ResetButton onClick={() => resetTimers()}>
+          <ResetIcon />
+        </ResetButton>
         <ResetText>Reset Timers</ResetText>
       </ResetWrapper>
     </Wrapper>
