@@ -52,6 +52,7 @@ const ActivityCreation = ({
     setShowModal(false);
   };
 
+  // Stops the user from inputting invalid timers
   const checkForValidTime = (ref) => {
     // When we go > 59 or < 0 error for user
     if (ref.current.value > 59) {

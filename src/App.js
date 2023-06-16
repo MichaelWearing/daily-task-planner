@@ -9,7 +9,7 @@ import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 //
 // Reset button for each activity ??
 //
-// Delete Button
+// Delete Button <<< ---
 //
 // Edit Button
 //

@@ -20,6 +20,7 @@ const Board = ({
 }) => {
   const [refresh, setRefresh] = useState(false);
 
+  // On reset button click, set all timers remaining time to original duration
   const resetTimers = () => {
     const newDailyAcitives = dailyActivities.map((activity) => {
       return {

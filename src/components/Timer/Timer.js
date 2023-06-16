@@ -26,8 +26,10 @@ const Timer = ({
     remainingTime.minutes
   );
   const [remainingHours, setRemainingHours] = useState(remainingTime.hours);
+  
   const [startTimer, setStartTimer] = useState(false);
 
+  // Resets the Timers to original duration refresh button click
   useEffect(() => {
     setRemainingHours(duration.hours);
     setRemainingMinutes(duration.minutes);
@@ -36,6 +38,8 @@ const Timer = ({
     setStartTimer(false);
   }, [refresh]);
 
+  // Timers tick down every second
+  //	Only runs if one of the timers is active
   useEffect(() => {
     const timerTick = setInterval(() => {
       if (startTimer) {
@@ -59,6 +63,7 @@ const Timer = ({
           }
         }
 
+        // Prpares the acitivty to be updated
         const updatedActivity = {
           id: id,
           title: title,
@@ -74,6 +79,7 @@ const Timer = ({
           },
         };
 
+        // Checks for which activity to update
         const updatedActivityArray = dailyActivities.map((currentActivity) => {
           if (currentActivity.id === id) {
             return updatedActivity;
@@ -89,6 +95,7 @@ const Timer = ({
     return () => clearInterval(timerTick);
   }, [remainingSeconds, startTimer]);
 
+  // Adds a 0 before single digit numbers
   const formateTime = (time) => {
     if (time < 10) {
       return `0${time}`;
