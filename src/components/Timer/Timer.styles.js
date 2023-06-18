@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FaPlay, FaPause, FaTrash } from "react-icons/fa";
 
 export const Wrapper = styled.div`
-  width: 25vh;
+  width: 40vh;
 
   display: flex;
   align-items: center;
@@ -52,4 +52,8 @@ export const DeleteIcon = styled(FaTrash)`
   :hover {
     transform: translateY(-3px);
   }
+`;
+
+export const TimeText = styled.p`
+  font-size: 25px;
 `;

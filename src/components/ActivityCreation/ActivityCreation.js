@@ -4,6 +4,7 @@ import {
   Wrapper,
   InnerWrapper,
   CloseModalWrapper,
+  PlaceHolderLeft,
   CloseIcon,
   Title,
   InputWrapper,
@@ -88,9 +89,10 @@ const ActivityCreation = ({
       <Wrapper onClick={() => setShowModal(false)}>
         <InnerWrapper onClick={(e) => e.stopPropagation()}>
           <CloseModalWrapper onClick={() => setShowModal(false)}>
+            <PlaceHolderLeft />
+            <Title>Create Activity</Title>
             <CloseIcon />
           </CloseModalWrapper>
-          <Title>Create Activity</Title>
           <InputWrapper>
             <InputInnerWrapper>
               <InputHeader>Title</InputHeader>

@@ -30,15 +30,25 @@ export const InnerWrapper = styled.div`
 `;
 
 export const CloseModalWrapper = styled.div`
+  width: 50vw;
+
   display: flex;
-  align-self: end;
+  align-items: center;
+  justify-content: space-between;
+
   background: transparent;
   font-size: 35px;
   cursor: pointer;
   outline: none;
 `;
 
+export const PlaceHolderLeft = styled.div`
+  flex: 1;
+`;
+
 export const CloseIcon = styled(FaTimes)`
+  flex: 1;
+
   & path {
     color: white;
   }
@@ -49,6 +59,8 @@ export const CloseIcon = styled(FaTimes)`
 `;
 
 export const Title = styled.h1`
+  flex: 3;
+  font-size: 40px;
   text-align: center;
 `;
 
@@ -110,3 +122,4 @@ export const CreateButton = styled.button`
     transform: translateY(-3px);
   }
 `;
+

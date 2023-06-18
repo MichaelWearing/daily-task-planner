@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import Activity from "../Activity/Activity";
 
@@ -19,6 +19,7 @@ const Board = ({
   showModal,
   setShowModal,
 }) => {
+  const addActivityRef = useRef();
   const [refresh, setRefresh] = useState(false);
 
   // On reset button click, set all timers remaining time to original duration
@@ -48,7 +49,13 @@ const Board = ({
             refresh={refresh}
           />
         ))}
-        <AddActivityButton onClick={() => setShowModal(!showModal)}>
+        <AddActivityButton // Shows in the modal until mouse is moved
+          ref={addActivityRef}
+          onClick={() => {
+            addActivityRef.current.blur();
+            setShowModal(!showModal);
+          }}
+        >
           Add Activity
         </AddActivityButton>
       </InnerWrapper>

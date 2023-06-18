@@ -4,11 +4,17 @@ import Board from "./components/Board/Board";
 import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 
 //
-// Maybe have a congratz screen for completeing a day
 //
 // Reset button for each activity ??
 //
 // Edit Button
+//
+// ----- Maybe -----
+//
+// Have a congratz screen for completeing a day
+//
+// Make activities dragable to re-order
+//
 //
 
 const App = () => {

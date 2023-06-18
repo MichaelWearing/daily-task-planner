@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { Wrapper, PlayIcon, PauseIcon, DeleteIcon } from "./Timer.styles";
+import {
+  Wrapper,
+  PlayIcon,
+  PauseIcon,
+  DeleteIcon,
+  TimeText,
+} from "./Timer.styles";
 
 const Timer = ({
   id,
@@ -121,9 +127,10 @@ const Timer = ({
         {timerComplete ? (
           <h1>TIME'S UP</h1>
         ) : (
-          `${formateTime(remainingHours)}:${formateTime(
-            remainingMinutes
-          )}:${formateTime(remainingSeconds)}`
+          <TimeText>
+            {formateTime(remainingHours)}:{formateTime(remainingMinutes)}:
+            {formateTime(remainingSeconds)}
+          </TimeText>
         )}
         {startTimer ? (
           <PauseIcon onClick={() => setStartTimer(!startTimer)} />
