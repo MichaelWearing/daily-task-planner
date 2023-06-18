@@ -6,7 +6,6 @@ import {
   Wrapper,
   ActivityWrapper,
   Title,
-  Description,
   TimerWrapper,
 } from "./Activity.styles";
 
@@ -24,7 +23,6 @@ const Activity = ({
     <Wrapper timerComplete={timerComplete}>
       <ActivityWrapper>
         <Title>{title}</Title>
-        <Description>desc...</Description>
       </ActivityWrapper>
       <TimerWrapper>
         <Timer

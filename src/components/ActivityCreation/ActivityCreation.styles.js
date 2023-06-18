@@ -14,7 +14,8 @@ export const Wrapper = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
-  background-color: royalblue;
+  border-radius: 30px;
+  background-color: #009ff5;
   opacity: 1;
 
   height: 50vh;
@@ -38,7 +39,13 @@ export const CloseModalWrapper = styled.div`
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: white;
+  & path {
+    color: white;
+  }
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `;
 
 export const Title = styled.h1`
@@ -66,6 +73,9 @@ export const InputInnerWrapper = styled.div`
 export const InputHeader = styled.h3``;
 
 export const Input = styled.input`
+  border-radius: 5px;
+  border: 0;
+
   height: 40px;
   width: 350px;
 
@@ -73,6 +83,9 @@ export const Input = styled.input`
 `;
 
 export const TimeInput = styled.input`
+  border-radius: 5px;
+  border: 0;
+
   height: 40px;
   width: 100px;
 
@@ -80,10 +93,20 @@ export const TimeInput = styled.input`
 `;
 
 export const CreateButton = styled.button`
+  color: #4c00ff;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  border: 2px solid #1f305e;
+  border-radius: 10px;
+
   height: 35px;
   width: 150px;
 
-  border-radius: 10px;
-
   cursor: pointer;
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `;

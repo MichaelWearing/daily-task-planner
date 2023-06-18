@@ -29,7 +29,7 @@ const ActivityCreation = ({
 
   const invalidInput = (ref) => {
     ref.current.focus();
-    ref.current.style.border = "5px solid red";
+    ref.current.style.border = "4px solid #4C00FF";
   };
 
   const createActivity = () => {
@@ -85,8 +85,8 @@ const ActivityCreation = ({
 
   return (
     <>
-      <Wrapper>
-        <InnerWrapper>
+      <Wrapper onClick={() => setShowModal(false)}>
+        <InnerWrapper onClick={(e) => e.stopPropagation()}>
           <CloseModalWrapper onClick={() => setShowModal(false)}>
             <CloseIcon />
           </CloseModalWrapper>

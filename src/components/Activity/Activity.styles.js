@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  background: violet;
+  background: #fefaff;
   height: 10vh;
 
   opacity: ${(props) => (props.timerComplete ? 0.5 : 1)};

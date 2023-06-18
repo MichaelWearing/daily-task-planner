@@ -10,28 +10,46 @@ export const Wrapper = styled.div`
 `;
 
 export const PlayIcon = styled(FaPlay)`
-  color: white;
+  & path {
+    color: #4c00ff;
+  }
 
   height: 2.5vh;
   width: 2.5vh;
 
   cursor: pointer;
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `;
 
 export const PauseIcon = styled(FaPause)`
-  color: white;
+  & path {
+    color: #4c00ff;
+  }
 
   height: 2.5vh;
   width: 2.5vh;
 
   cursor: pointer;
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `;
 
 export const DeleteIcon = styled(FaTrash)`
-  color: white;
+  & path {
+    color: #4c00ff;
+  }
 
   height: 2.5vh;
   width: 2.5vh;
 
   cursor: pointer;
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `;

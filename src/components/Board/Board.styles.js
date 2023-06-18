@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaBackward } from "react-icons/fa";
+import { FaRetweet } from "react-icons/fa";
 
 export const Wrapper = styled.div`
   background: royalblue;
@@ -24,6 +24,13 @@ export const InnerWrapper = styled.div`
 `;
 
 export const AddActivityButton = styled.button`
+  font-size: 15px;
+  font-weight: bold;
+
+  color: #4c00ff;
+
+  border: 2px solid #1f305e;
+
   height: 35px;
   width: 150px;
 
@@ -35,6 +42,10 @@ export const AddActivityButton = styled.button`
   border-radius: 10px;
 
   cursor: pointer;
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `;
 
 export const ResetWrapper = styled.div`
@@ -45,18 +56,28 @@ export const ResetWrapper = styled.div`
 `;
 
 export const ResetButton = styled.button`
-  height: 5vh;
+  height: 4vh;
   width: 5vh;
 
+  border-radius: 12.5px;
+
   cursor: pointer;
+  transition: "transform 0.15s ease-in-out";
+
+  :hover {
+    transform: translateY(-3px);
+  }
 `;
 
-export const ResetIcon = styled(FaBackward)`
-  // Change icon
-  color: lightskyblue;
+export const ResetIcon = styled(FaRetweet)`
+  & path {
+    color: #4c00ff;
+  }
 
   height: 3vh;
-  width: 3vh;
+  width: 3svh;
+
+  border-radius: 12.5px;
 
   cursor: pointer;
 `;
