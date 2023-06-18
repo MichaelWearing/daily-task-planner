@@ -13,12 +13,6 @@ const Timer = ({
   setTimerComplete,
   refresh,
 }) => {
-  //
-  //
-  // If we hit the reset button, we utilize duration to get the starting time
-  //
-  //
-
   const [remainingSeconds, setRemainingSeconds] = useState(
     remainingTime.seconds
   );
@@ -36,6 +30,7 @@ const Timer = ({
     setRemainingSeconds(duration.seconds);
     setTimerComplete(false);
     setStartTimer(false);
+    // eslint-disable-next-line
   }, [refresh]);
 
   // Timers tick down every second
@@ -93,6 +88,7 @@ const Timer = ({
     }, 1000);
 
     return () => clearInterval(timerTick);
+    // eslint-disable-next-line
   }, [remainingSeconds, startTimer]);
 
   const deleteActivity = () => {
@@ -101,6 +97,8 @@ const Timer = ({
     const updatedActivityArray = dailyActivities.filter((currentActivity) => {
       if (currentActivity.id !== id) {
         return currentActivity;
+      } else {
+        return false;
       }
     });
 

@@ -27,9 +27,29 @@ const ActivityCreation = ({
   const minutesRef = useRef();
   const hoursRef = useRef();
 
+  const invalidInput = (ref) => {
+    ref.current.focus();
+    ref.current.style.border = "5px solid red";
+  };
+
   const createActivity = () => {
-    // Add a check for title and duration being empty
-    // Setup so timer takes a valid time
+    // Perform Checks to make sure all fields are filled in
+    if (titleRef.current.value.length === 0) {
+      invalidInput(titleRef);
+      return;
+    }
+    if (hoursRef.current.value.length === 0) {
+      invalidInput(hoursRef);
+      return;
+    }
+    if (minutesRef.current.value.length === 0) {
+      invalidInput(minutesRef);
+      return;
+    }
+    if (secondsRef.current.value.length === 0) {
+      invalidInput(secondsRef);
+      return;
+    }
 
     setDailyActivities([
       ...dailyActivities,
@@ -74,7 +94,7 @@ const ActivityCreation = ({
           <InputWrapper>
             <InputInnerWrapper>
               <InputHeader>Title</InputHeader>
-              <Input ref={titleRef} type="text" placeholder="Title" />
+              <Input autoFocus ref={titleRef} type="text" placeholder="Title" />
             </InputInnerWrapper>
             <InputInnerWrapper>
               <InputHeader>Duration</InputHeader>

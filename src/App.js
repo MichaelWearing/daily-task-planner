@@ -10,8 +10,6 @@ import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 //
 // Edit Button
 //
-// User Input, need to add all boxes and correctly
-//
 
 const App = () => {
   const id = useId();

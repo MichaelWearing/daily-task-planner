@@ -2,13 +2,11 @@ import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 
 export const Wrapper = styled.div`
-  background-color: lightgray;
+  background-color: rgba(0, 0, 0, 0.7);
 
   position: absolute;
   height: 100vh;
   width: 100vw;
-
-  opacity: 0.7;
 
   display: flex;
   align-items: center;
@@ -17,6 +15,7 @@ export const Wrapper = styled.div`
 
 export const InnerWrapper = styled.div`
   background-color: royalblue;
+  opacity: 1;
 
   height: 50vh;
   width: 60vw;
