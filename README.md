@@ -4,9 +4,9 @@ An app desgined to allow a user to add tasks they need to complete in a day, and
 The app utilizes Local Storage to save activites between visits
 
 # Tech/ Frameworks
-React
-Styled Components
-React Icons
+- React
+- Styled Components
+- React Icons
 
 
 # Color Palette
