@@ -3,7 +3,6 @@ import React, { useState, useId, useEffect } from "react";
 import Board from "./components/Board/Board";
 import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 
-
 //
 // Maybe have a congratz screen for completeing a day
 //
@@ -13,52 +12,43 @@ import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 //
 // User Input, need to add all boxes and correctly
 //
-// Save stuff via cookies
-// 
-// useEffect(() => {
-//   update cookies
-// }, [dailyActivities])
-//
 
 const App = () => {
   const id = useId();
-  const id2 = useId();
 
   const [showModal, setShowModal] = useState(false);
 
-  const [dailyActivities, setDailyActivities] = useState([
-    {
-      id: id,
-      title: "Code Test",
-      duration: {
-        hours: 0,
-        minutes: 0,
-        seconds: 5,
-      },
-      remainingTime: {
-        hours: 0,
-        minutes: 0,
-        seconds: 5,
-      },
-    },
-    {
-      id: id2,
-      title: "Code Test 2",
-      duration: {
-        hours: 0,
-        minutes: 1,
-        seconds: 5,
-      },
-      remainingTime: {
-        hours: 0,
-        minutes: 1,
-        seconds: 5,
-      },
-    },
-  ]);
+  const initialDataFromLocalStorage = JSON.parse(
+    localStorage.getItem("dailyActivitiesLocalStorage")
+  );
 
-  // console.log(dailyActivities, "App.js - dailyActivities");
-  console.log(dailyActivities[0].remainingTime, "App.js - dailyActivities");
+  const initialData = initialDataFromLocalStorage
+    ? initialDataFromLocalStorage
+    : [
+        {
+          id: id,
+          title: "My First Activity",
+          duration: {
+            hours: 0,
+            minutes: 0,
+            seconds: 5,
+          },
+          remainingTime: {
+            hours: 0,
+            minutes: 0,
+            seconds: 5,
+          },
+        },
+      ];
+
+  const [dailyActivities, setDailyActivities] = useState(initialData);
+
+  useEffect(() => {
+    localStorage.setItem(
+      "dailyActivitiesLocalStorage",
+      JSON.stringify(dailyActivities)
+    );
+  }, [dailyActivities]);
 
   return (
     <>

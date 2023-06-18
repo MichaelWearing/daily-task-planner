@@ -20,8 +20,6 @@ export const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
-  /* margin: 50px 50px 5vh 50px; */
-
   border-radius: 15px;
 `;
 
@@ -54,6 +52,7 @@ export const ResetButton = styled.button`
 `;
 
 export const ResetIcon = styled(FaBackward)`
+  // Change icon
   color: lightskyblue;
 
   height: 3vh;
