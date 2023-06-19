@@ -9,13 +9,21 @@ import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 //
 // Edit Button
 //
+// Add Mobile media queries
+//
 // ----- Maybe -----
 //
 // Have a congratz screen for completeing a day
 //
 // Make activities dragable to re-order
 //
+// ----- Bugs -----
 //
+// Id's are not unquie enough. Every refresh causes the id to go back to the same first ID
+//
+// When you refresh, the timers go back to full duration
+//
+// If a user inputs 00 into one of the time slots, it will display triple 0's
 
 const App = () => {
   const id = useId();

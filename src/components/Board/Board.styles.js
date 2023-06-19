@@ -16,6 +16,7 @@ export const InnerWrapper = styled.div`
   background: lightskyblue;
   height: 85vh;
   width: 90vw;
+  max-width: 1200px;
 
   display: flex;
   flex-direction: column;
