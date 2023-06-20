@@ -27,6 +27,15 @@ export const InnerWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+  @media screen and (max-width: 768px) {
+    height: 40vh;
+    width: 90vw;
+
+    padding: 40px 10px;
+
+    justify-content: space-between;
+  }
 `;
 
 export const CloseModalWrapper = styled.div`
@@ -40,6 +49,10 @@ export const CloseModalWrapper = styled.div`
   font-size: 35px;
   cursor: pointer;
   outline: none;
+
+  @media screen and (max-width: 768px) {
+    width: 85vw;
+  }
 `;
 
 export const PlaceHolderLeft = styled.div`
@@ -62,12 +75,19 @@ export const Title = styled.h1`
   flex: 3;
   font-size: 40px;
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    font-size: 25px;
+  }
 `;
 
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
+  @media screen and (max-width: 768px) {
+    gap: 25px;
+  }
 `;
 
 export const TimerWrapper = styled.div`
@@ -122,4 +142,3 @@ export const CreateButton = styled.button`
     transform: translateY(-3px);
   }
 `;
-

@@ -4,18 +4,23 @@ import Board from "./components/Board/Board";
 import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 
 //
-//
 // Reset button for each activity ??
 //
 // Edit Button
 //
 // Add Mobile media queries
 //
+// Add out level sections
+//  What I have now could be a sub section
+//  Use for Gym splits etc
+//
 // ----- Maybe -----
 //
 // Have a congratz screen for completeing a day
 //
 // Make activities dragable to re-order
+//
+// Add ability to toggle timers on/ off
 //
 // ----- Bugs -----
 //
@@ -24,6 +29,8 @@ import ActivityCreation from "./components/ActivityCreation/ActivityCreation";
 // When you refresh, the timers go back to full duration
 //
 // If a user inputs 00 into one of the time slots, it will display triple 0's
+//  uuid maybe
+//
 
 const App = () => {
   const id = useId();

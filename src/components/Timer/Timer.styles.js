@@ -2,11 +2,18 @@ import styled from "styled-components";
 import { FaPlay, FaPause, FaTrash } from "react-icons/fa";
 
 export const Wrapper = styled.div`
-  width: 40vh;
+  gap: 5px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 10vh;
 `;
 
 export const PlayIcon = styled(FaPlay)`
@@ -56,4 +63,8 @@ export const DeleteIcon = styled(FaTrash)`
 
 export const TimeText = styled.p`
   font-size: 25px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
 `;

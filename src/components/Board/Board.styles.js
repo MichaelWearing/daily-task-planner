@@ -44,9 +44,9 @@ export const AddActivityButton = styled.button`
 
   cursor: pointer;
 
-  :hover {
+  /* :hover { // This was causing a bug, need to find a better way animate
     transform: translateY(-3px);
-  }
+  } */
 `;
 
 export const ResetWrapper = styled.div`
@@ -57,8 +57,8 @@ export const ResetWrapper = styled.div`
 `;
 
 export const ResetButton = styled.button`
-  height: 4vh;
-  width: 5vh;
+  height: 6vh;
+  width: 7vh;
 
   border-radius: 12.5px;
 

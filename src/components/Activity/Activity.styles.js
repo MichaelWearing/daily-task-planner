@@ -16,6 +16,10 @@ export const Wrapper = styled.div`
 
   border-radius: 15px;
   border: solid 1px black;
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 20px;
+  }
 `;
 
 export const ActivityWrapper = styled.div`
@@ -23,7 +27,12 @@ export const ActivityWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.h2`
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
 export const Description = styled.p``;
 
 export const TimerWrapper = styled.div`

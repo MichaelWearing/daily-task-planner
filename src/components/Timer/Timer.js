@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import {
   Wrapper,
+  IconWrapper,
   PlayIcon,
   PauseIcon,
   DeleteIcon,
@@ -132,12 +133,14 @@ const Timer = ({
             {formateTime(remainingSeconds)}
           </TimeText>
         )}
-        {startTimer ? (
-          <PauseIcon onClick={() => setStartTimer(!startTimer)} />
-        ) : (
-          <PlayIcon onClick={() => setStartTimer(!startTimer)} />
-        )}
-        <DeleteIcon onClick={() => deleteActivity()} />
+        <IconWrapper>
+          {startTimer ? (
+            <PauseIcon onClick={() => setStartTimer(!startTimer)} />
+          ) : (
+            <PlayIcon onClick={() => setStartTimer(!startTimer)} />
+          )}
+          <DeleteIcon onClick={() => deleteActivity()} />
+        </IconWrapper>
       </Wrapper>
     </>
   );
