@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaRetweet } from "react-icons/fa";
+import { FaRetweet, FaBackward } from "react-icons/fa";
 
 export const Wrapper = styled.div`
   background: royalblue;
@@ -12,11 +12,62 @@ export const Wrapper = styled.div`
   align-items: center;
 `;
 
+export const HeaderWrapper = styled.div`
+  height: 6vh;
+  width: 90vw;
+
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+export const BackButtonWrapper = styled.div`
+  flex: 1;
+`;
+
+export const BackButton = styled.button`
+  height: 6vh;
+  width: 7vh;
+
+  border-radius: 12.5px;
+
+  cursor: pointer;
+  transition: "transform 0.15s ease-in-out";
+
+  :hover {
+    transform: translateY(-3px);
+  }
+`;
+
+export const BackIcon = styled(FaBackward)`
+  & path {
+    color: #4c00ff;
+  }
+
+  height: 3vh;
+  width: 3vh;
+
+  cursor: pointer;
+`;
+
+export const HeaderText = styled.h1`
+  flex: 3;
+
+  color: rgb(254, 250, 255);
+
+  text-align: center;
+`;
+
+export const HeaderFiller = styled.div`
+  flex: 1;
+`;
+
 export const InnerWrapper = styled.div`
   background: lightskyblue;
-  height: 85vh;
+  height: 80vh;
   width: 90vw;
   max-width: 1200px;
+
+  overflow: overlay;
 
   display: flex;
   flex-direction: column;
@@ -77,8 +128,6 @@ export const ResetIcon = styled(FaRetweet)`
 
   height: 3vh;
   width: 3svh;
-
-  border-radius: 12.5px;
 
   cursor: pointer;
 `;

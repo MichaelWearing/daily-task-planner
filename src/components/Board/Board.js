@@ -1,9 +1,16 @@
 import React, { useRef } from "react";
 
+import SubActivity from "../SubActivity/SubActivity";
 import Activity from "../Activity/Activity";
 
 import {
   Wrapper,
+  HeaderWrapper,
+  BackButtonWrapper,
+  BackButton,
+  BackIcon,
+  HeaderText,
+  HeaderFiller,
   InnerWrapper,
   AddActivityButton,
   ResetWrapper,
@@ -14,6 +21,10 @@ import {
 import { useState } from "react";
 
 const Board = ({
+  currentActivity,
+  setCurrentActivity,
+  mikeyArray,
+  setMikeyArray,
   dailyActivities,
   setDailyActivities,
   showModal,
@@ -38,18 +49,39 @@ const Board = ({
 
   return (
     <Wrapper>
+      <HeaderWrapper>
+        <BackButtonWrapper>
+          {currentActivity !== null && (
+            <BackButton onClick={() => setCurrentActivity(null)}>
+              <BackIcon />
+            </BackButton>
+          )}
+        </BackButtonWrapper>
+        <HeaderText>Title</HeaderText>
+        <HeaderFiller />
+      </HeaderWrapper>
       <InnerWrapper>
-        {dailyActivities.map((activity, index) => (
-          <Activity
-            id={activity.id}
-            key={`${activity.title}${index}`}
-            activity={activity}
-            dailyActivities={dailyActivities}
-            setDailyActivities={setDailyActivities}
-            refresh={refresh}
-          />
-        ))}
-        <AddActivityButton // Shows in the modal until mouse is moved
+        {currentActivity !== null
+          ? currentActivity.map((activity, index) => (
+              <SubActivity
+                id={activity.id}
+                key={`${activity.title}${index}`}
+                activity={activity}
+                dailyActivities={dailyActivities}
+                setDailyActivities={setDailyActivities}
+                refresh={refresh}
+              />
+            ))
+          : mikeyArray.map((activity, index) => (
+              <Activity
+                key={`${activity.ActivityTitle}${index}`}
+                title={activity.ActivityTitle}
+                numberOfActivities={activity.subActivities.length}
+                setCurrentActivity={setCurrentActivity}
+                activity={activity}
+              />
+            ))}
+        <AddActivityButton
           ref={addActivityRef}
           onClick={() => {
             addActivityRef.current.blur();

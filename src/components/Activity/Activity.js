@@ -1,42 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-import Timer from "../Timer/Timer";
-
-import {
-  Wrapper,
-  ActivityWrapper,
-  Title,
-  TimerWrapper,
-} from "./Activity.styles";
+import { Wrapper, Title, NumberOfActivitiesText } from "./Activity.styles";
 
 const Activity = ({
-  id,
+  title,
+  numberOfActivities,
+  setCurrentActivity,
   activity,
-  dailyActivities,
-  setDailyActivities,
-  refresh,
 }) => {
-  const { title, duration, remainingTime } = activity;
-  const [timerComplete, setTimerComplete] = useState(false);
-
   return (
-    <Wrapper timerComplete={timerComplete}>
-      <ActivityWrapper>
-        <Title>{title}</Title>
-      </ActivityWrapper>
-      <TimerWrapper>
-        <Timer
-          id={id}
-          title={title}
-          duration={duration}
-          remainingTime={remainingTime}
-          dailyActivities={dailyActivities}
-          setDailyActivities={setDailyActivities}
-          timerComplete={timerComplete}
-          setTimerComplete={setTimerComplete}
-          refresh={refresh}
-        />
-      </TimerWrapper>
+    <Wrapper onClick={() => setCurrentActivity(activity.subActivities)}>
+      <Title>{title}</Title>
+      <NumberOfActivitiesText>
+        activities: {numberOfActivities}
+      </NumberOfActivitiesText>
     </Wrapper>
   );
 };
